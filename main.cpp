@@ -60,7 +60,9 @@ int main(int argc, char** argv)
 
 	get_verses(bible, verses);
 
-	int offset = (verses[verses.size() - 1][5] == '\r' ? 1 : 0);
+	int offset = ((verses[verses.size() - 1][5] == '\r') ||
+				  (verses[verses.size() - 1][6] == '\0')? 1 : 0);
+
 	for(int i = 0; i < verses.size() - offset; i++) {
 		printf("%s\n", verses[i].c_str());
 	}
